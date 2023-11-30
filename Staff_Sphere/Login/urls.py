@@ -3,4 +3,5 @@ from .import views
 
 urlpatterns = [
     path('', views.login, name="loginpage"),
+    path('signup/', views.signup, name="signup"),
     ]
