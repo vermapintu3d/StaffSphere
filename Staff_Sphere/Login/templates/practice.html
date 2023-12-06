@@ -6,6 +6,11 @@
     <title>Practice</title>
 </head>
 <body>
-
+    <h1><b>Members</b></h1>
+<ol>
+{%for x in my1 %}
+<li><a href="details/{{ x.id }}">{{x.firstname}} {{x.lastname}}</a></li>
+{%endfor%}
+</ol>
 </body>
 </html>
