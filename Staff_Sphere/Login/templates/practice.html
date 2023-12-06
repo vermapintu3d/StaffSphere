@@ -6,11 +6,13 @@
     <title>Practice</title>
 </head>
 <body>
-    <h1><b>Members</b></h1>
+    <h1 style="color: rgb(255, 179, 47);">Members</h1>
+    <p style="color: rgb(211, 139, 45);">Click on member name to display the details:-</p>
 <ol>
 {%for x in my1 %}
 <li><a href="details/{{ x.id }}">{{x.firstname}} {{x.lastname}}</a></li>
 {%endfor%}
 </ol>
+Back to <a href="/">Main </a>Page
 </body>
 </html>

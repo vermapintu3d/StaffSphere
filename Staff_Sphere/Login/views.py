@@ -5,8 +5,9 @@ from .models import Test
 
 # Create your views here.
 
-def Home(request):
-    return HttpResponse("Welcome to Django")
+def Main(request):
+    template = loader.get_template("Main.html")
+    return HttpResponse(template.render())
 
 def practice(request):
     my1 = Test.objects.all().values()
