@@ -34,3 +34,10 @@ def signup(request):
     template = loader.get_template("signup.html")
 
     return HttpResponse(template.render())
+
+def testing(request):
+    template = loader.get_template("testings.html")
+    context = {
+        'fruits':['Apple', 'Banana','Cherry', 'Papaya', 'Orange']
+    }
+    return HttpResponse(template.render(context, request))
