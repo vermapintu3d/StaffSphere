@@ -10,3 +10,6 @@ class Test(models.Model):
   DOB = models.DateField(null=True)
   gender = models.CharField(max_length=1, null=True)
 
+
+  def __str__(self):
+    return f"{self.firstname} {self.lastname}"
