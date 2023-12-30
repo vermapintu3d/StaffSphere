@@ -38,6 +38,6 @@ def signup(request):
 def testing(request):
     template = loader.get_template("testings.html")
     context = {
-        'fruits':['Apple', 'Banana','Cherry', 'Papaya', 'Orange']
+        'name':'pintu'
     }
     return HttpResponse(template.render(context, request))
