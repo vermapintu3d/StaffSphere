@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 
@@ -13,3 +14,9 @@ class Test(models.Model):
 
   def __str__(self):
     return f"{self.firstname} {self.lastname}"
+  
+
+  
+class LoginForm(forms.Form):
+  username = forms.CharField(max_length=100, required=True, help_text="Enter your username")
+  password = forms.CharField(max_length=100, required=True, help_text="Enter your password")

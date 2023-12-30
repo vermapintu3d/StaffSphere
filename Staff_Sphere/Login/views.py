@@ -1,7 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,redirect
+from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
-from .models import Test
+from .models import Test, LoginForm
 
 # Create your views here.
 
@@ -35,9 +35,23 @@ def signup(request):
 
     return HttpResponse(template.render())
 
-def testing(request):
-    template = loader.get_template("testings.html")
-    context = {
-        'name':'pintu'
-    }
-    return HttpResponse(template.render(context, request))
+def loginUser(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data(['uname'])
+            password = form.cleaned_data(['password'])
+            userData = Test.objects.filter({username:username, password:password })
+            if(userData):
+                context = {
+                  'my3':userData[0],
+                }
+            else:
+                return HttpResponseRedirect('/signup.html')
+        template = loader.get_template("userinfo.html")
+        return HttpResponse(template.render(context, request))
+    
+    else : 
+        form = LoginForm()
+
+    return render(request, 'loginpage.html', {form: form})
